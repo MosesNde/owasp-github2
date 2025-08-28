@@ -1,0 +1,20 @@
+       notice_reset_token: "Byl vygenerován nový %{type} token. Váš přístupový token je:"
+       token_value_warning: "Poznámka: Toto je jedinkrát, kdy uvidíte tento token, ujistěte se, že jste si hozkopírovali."
+       no_results_title_text: V současné době nejsou k dispozici žádné přístupové tokeny.
+      notice_api_token_revoked: "Token API byl odstraněn. Pro vytvoření nového tokenu použijte odkaz v sekci API."
+       notice_rss_token_revoked: "Token API byl odstraněn. Pro vytvoření nového tokenu použijte odkaz v sekci API."
+       notice_ical_token_revoked: 'token iCalendar "%{token_name}" pro kalendář "%{calendar_name}" projektu "%{project_name}" byl zrušen. URL iCalendar s tímto tokenem je nyní neplatná.'
+   news:
+         other: "Oznámení"
+       placeholder_user: "placeholder uživatel"
+       project: "Projekt"
+       query: "Vlastní dotaz"
+       role:
+         one: "Role"
+       additional_privileges_group: "Might have additional privileges (as group member)"
+       additional_privileges_project_or_group: "Might have additional privileges (as project or group member)"
+     project_queries:
+       access_warning: "Users will only see the projects they have access to. Sharing project lists does not impact individual project permissions."
+       public_flag:
+         label: "Share with everyone at %{instance_name}"
+         caption: "Everyone can view this project list. Those with global edit permissions can modify it."

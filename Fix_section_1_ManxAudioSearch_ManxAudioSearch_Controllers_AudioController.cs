@@ -1,0 +1,34 @@
+﻿using System.Text.RegularExpressions;
+using ManxAudioSearch.Services;
+using Microsoft.AspNetCore.Mvc;
+ 
+ namespace ManxAudioSearch.Controllers;
+ 
+ [ApiController]
+ [Route("[controller]")]
+ public class AudioController : ControllerBase
+ {
+    private readonly AudioService _service;
+
+    public AudioController(AudioService service)
+    {
+        _service = service;
+    }
+    
+     [HttpGet("{name}")]
+     public ActionResult Get(string name)
+     {
+        if (!_service.ContainsFileNamed(name))
+        {
+            throw new InvalidOperationException($"{name} not found");
+        }
+        Regex regex = new Regex(@"([a-zA-Z0-9çÇ\(\)\s_\-:])+$");   
+        Match match = regex.Match(name);
+        if (!match.Success)
+        {
+            throw new InvalidOperationException("Possible path traversal");
+        }
+        
+         var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "publish", "wwwroot", "audio", name + ".mp3");
+         using var fs = new FileStream(path, FileMode.Open, FileAccess.Read);
+                
