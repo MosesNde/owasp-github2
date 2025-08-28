@@ -1,7 +1,7 @@
-   def logged_in_user
-     unless logged_in?
-       flash[:alert] = "Please log in."
-      redirect_params = params[:redirect] ? {redirect_url: request.url} : nil
-       redirect_to login_url(redirect_params)
-     end
-   end
+ 
+   before_action :authenticate_user!
+ 
+  protect_from_forgery with: :exception
+ 
+   def error_400
+     error 400

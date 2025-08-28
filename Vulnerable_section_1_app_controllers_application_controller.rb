@@ -1,7 +1,7 @@
- 		correct_id = resource.to_param
- 		if correct_id != params[id_param_name]
- 			params[id_param_name] = correct_id
-			redirect_to params, :status => 301
- 			return true
- 		end
- 		return false
+ 
+   before_action :authenticate_user!
+ 
+  protect_from_forgery
+ 
+   def error_400
+     error 400
